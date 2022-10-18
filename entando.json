@@ -5,7 +5,20 @@
       "stack": "spring-boot",
       "healthCheckPath": "/management/health",
       "dbms": "postgresql",
-      "roles": ["conference-admin", "conference-user"]
+      "roles": ["conference-admin", "conference-user"],
+      "env": [
+        { "name": "SIMPLE_VAR",
+          "value":"mySimpleValue"
+        },
+	  { "name": "SECRET_VAR",
+	     "valueFrom": {
+	      "secretKeyRef": {
+	        "name": "YOUR-BUNDLE-ID-my-secret", 
+	        "key": "mySecretKey"
+	      }
+	    }
+	  }
+      ]
     }
   ],
   "microfrontends": [
